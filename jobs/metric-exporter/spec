@@ -1,11 +1,14 @@
 ---
 name: metric-exporter
 
+packages:
+  - bosh-helpers
+  - metric-exporter
+
 templates:
+  bin/metric-exporter-ctl.erb: bin/metric-exporter-ctl
   config/loggregator.ca_cert.crt.erb: config/loggregator.ca_cert.crt
   config/loggregator.client_cert.crt.erb: config/loggregator.client_cert.crt
   config/loggregator.client_key.key.erb: config/loggregator.client_key.key
-
-packages: []
 
 properties: {}

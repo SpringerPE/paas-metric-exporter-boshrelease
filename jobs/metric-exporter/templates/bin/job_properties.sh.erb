@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#
+# Metric Exporter properties
+#
+
+# Directory to store configuration files
+export METRIC_EXPORTER_CONF_DIR=${JOB_DIR}/config
+
+# Directory to store log files
+export METRIC_EXPORTER_LOG_DIR=${LOG_DIR}
+
+# Directory to store process IDs
+export METRIC_EXPORTER_PID_DIR=${RUN_DIR}
+
+# Directory to store data files
+export METRIC_EXPORTER_STORE_DIR=${STORE_DIR}
+
+# Directory to store temp files
+export METRIC_EXPORTER_TMP_DIR=${TMP_DIR}

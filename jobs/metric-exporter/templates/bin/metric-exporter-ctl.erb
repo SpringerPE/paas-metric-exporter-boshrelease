@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+
+# Setup common env vars and folders
+source /var/vcap/packages/bosh-helpers/ctl_setup.sh 'metric-exporter'
+export METRIC_EXPORTER_PID_FILE=${METRIC_EXPORTER_PID_DIR}/metric-exporter.pid
+
+case $1 in
+
+  start)
+    pid_guard ${METRIC_EXPORTER_PID_FILE} ${JOB_NAME}
+    echo $$ > ${METRIC_EXPORTER_PID_FILE}
+
+    # TODO: add the metric-exporter package and setup config.json
+    exec /var/vcap/packages/metric-exporter/bin/paas-metric-exporter \
+      -config=${METRIC_EXPORTER_CONF_DIR}/config.json \
+      > >(tee -a ${METRIC_EXPORTER_LOG_DIR}/${OUTPUT_LABEL}.stdout.log | logger -t vcap.${OUTPUT_LABEL}.stdout) \
+      2> >(tee -a ${METRIC_EXPORTER_LOG_DIR}/${OUTPUT_LABEL}.stderr.log | logger -t vcap.${OUTPUT_LABEL}.stderr)
+    ;;
+
+  stop)
+    kill_and_wait ${METRIC_EXPORTER_PID_FILE}
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+    ;;
+
+esac
+exit 0
