@@ -1,0 +1,3 @@
+[submodule "src/github.com/alphagov/paas-metric-exporter"]
+	path = src/github.com/alphagov/paas-metric-exporter
+	url = https://github.com/alphagov/paas-metric-exporter
