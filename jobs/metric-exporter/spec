@@ -1,7 +1,10 @@
 ---
 name: metric-exporter
 
-templates: {}
+templates:
+  config/loggregator.ca_cert.crt.erb: config/loggregator.ca_cert.crt
+  config/loggregator.client_cert.crt.erb: config/loggregator.client_cert.crt
+  config/loggregator.client_key.key.erb: config/loggregator.client_key.key
 
 packages: []
 
