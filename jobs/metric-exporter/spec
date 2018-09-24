@@ -6,9 +6,17 @@ packages:
   - metric-exporter
 
 templates:
+  bin/job_properties.sh.erb: bin/job_properties.sh
   bin/metric-exporter-ctl.erb: bin/metric-exporter-ctl
   config/loggregator.ca_cert.crt.erb: config/loggregator.ca_cert.crt
   config/loggregator.client_cert.crt.erb: config/loggregator.client_cert.crt
   config/loggregator.client_key.key.erb: config/loggregator.client_key.key
 
-properties: {}
+properties:
+  metric-exporter.cf_api_url:
+    description: "Cloud Foundry API URL"
+    example: "https://api.example.com"
+  metric-exporter.cf_username:
+    description: "Username for reading events from Loggregator"
+  metric-exporter.cf_password:
+    description: "Password for reading events from Loggregator"

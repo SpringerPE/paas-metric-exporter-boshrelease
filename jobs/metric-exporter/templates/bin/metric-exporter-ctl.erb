@@ -12,9 +12,10 @@ case $1 in
     pid_guard ${METRIC_EXPORTER_PID_FILE} ${JOB_NAME}
     echo $$ > ${METRIC_EXPORTER_PID_FILE}
 
-    # TODO: add the metric-exporter package and setup config.json
+    export ENABLE_STATSD=false
+    export ENABLE_LOGGREGATOR=true
+
     exec /var/vcap/packages/metric-exporter/bin/paas-metric-exporter \
-      -config=${METRIC_EXPORTER_CONF_DIR}/config.json \
       > >(tee -a ${METRIC_EXPORTER_LOG_DIR}/${OUTPUT_LABEL}.stdout.log | logger -t vcap.${OUTPUT_LABEL}.stdout) \
       2> >(tee -a ${METRIC_EXPORTER_LOG_DIR}/${OUTPUT_LABEL}.stderr.log | logger -t vcap.${OUTPUT_LABEL}.stderr)
     ;;
