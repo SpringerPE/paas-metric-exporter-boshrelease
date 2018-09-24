@@ -20,3 +20,9 @@ properties:
     description: "Username for reading events from Loggregator"
   metric-exporter.cf_password:
     description: "Password for reading events from Loggregator"
+  metric-exporter.loggregator.ca_cert:
+    description: "CA Cert for the loggregator ingress endpoint as a string"
+  metric-exporter.loggregator.client_cert:
+    description: "Client certificate for loggregator ingress traffic as a string"
+  metric-exporter.loggregator.client_key:
+    description: "Client certificate key for loggregator ingress traffic as a string"
