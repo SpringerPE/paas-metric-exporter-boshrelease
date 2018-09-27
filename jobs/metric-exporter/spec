@@ -11,6 +11,9 @@ templates:
   config/loggregator.ca_cert.crt.erb: config/loggregator.ca_cert.crt
   config/loggregator.client_cert.crt.erb: config/loggregator.client_cert.crt
   config/loggregator.client_key.key.erb: config/loggregator.client_key.key
+  config/locket.ca_cert.crt.erb: config/locket.ca_cert.crt
+  config/locket.client_cert.crt.erb: config/locket.client_cert.crt
+  config/locket.client_key.key.erb: config/locket.client_key.key
 
 properties:
   metric-exporter.cf_api_url:
@@ -26,3 +29,15 @@ properties:
     description: "Client certificate for loggregator ingress traffic as a string"
   metric-exporter.loggregator.client_key:
     description: "Client certificate key for loggregator ingress traffic as a string"
+  metric-exporter.enable_locking:
+    description: "Whether to use locking via a Locket server"
+    default: true
+  metric-exporter.locket.api_location:
+    description: "The host and port for the Locket server"
+    example: "127.0.0.1:8891"
+  metric-exporter.locket.ca_cert:
+    description: "A PEM formatted certificate of a CA the Locket client will trust"
+  metric-exporter.locket.client_cert:
+    description: "A PEM formatted certificate used for client connections to the Locket server"
+  metric-exporter.locket.client_key:
+    description: "A PEM formatted key used for client connections to the Locket server"

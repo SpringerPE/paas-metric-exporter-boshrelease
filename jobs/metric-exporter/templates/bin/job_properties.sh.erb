@@ -19,11 +19,11 @@ export METRIC_EXPORTER_STORE_DIR=${STORE_DIR}
 # Directory to store temp files
 export METRIC_EXPORTER_TMP_DIR=${TMP_DIR}
 
-# CF API URL
 export API_ENDPOINT=<%= p('metric-exporter.cf_api_url') %>
-
-# UAA client ID
 export CLIENT_ID=<%= p('metric-exporter.client_id') %>
-
-# UAA client secret
 export CLIENT_SECRET=<%= p('metric-exporter.client_secret') %>
+export ENABLE_LOCKING=<%= p('metric-exporter.enable_locking') %>
+export LOCKET_API_LOCATION=<%= p('metric-exporter.locket.api_location') %>
+
+export ENABLE_STATSD=false
+export ENABLE_LOGGREGATOR=true
