@@ -25,5 +25,9 @@ export CLIENT_SECRET=<%= p('metric-exporter.client_secret') %>
 export ENABLE_LOCKING=<%= p('metric-exporter.enable_locking') %>
 export LOCKET_API_LOCATION=<%= p('metric-exporter.locket.api_location') %>
 
+<% if_p('metric-exporter.metric_whitelist') do |metric_whitelist| %>
+export METRIC_WHITELIST="<%= metric_whitelist %>"
+<% end %>
+
 export ENABLE_STATSD=false
 export ENABLE_LOGGREGATOR=true

@@ -41,3 +41,5 @@ properties:
     description: "A PEM formatted certificate used for client connections to the Locket server"
   metric-exporter.locket.client_key:
     description: "A PEM formatted key used for client connections to the Locket server"
+  metric-exporter.metric_whitelist:
+    description: "A comma-delimited list of metrics to include. See README at https://github.com/alphagov/paas-metric-exporter/tree/f8a69a4caff5b8e93b10e384af3314ed314692cc#metric-whitelist"
