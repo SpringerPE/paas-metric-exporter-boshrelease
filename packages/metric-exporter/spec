@@ -1,0 +1,6 @@
+---
+name: metric-exporter
+dependencies:
+  - golang
+files:
+  - github.com/alphagov/paas-metric-exporter/**/*

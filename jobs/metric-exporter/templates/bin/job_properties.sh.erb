@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+#
+# Metric Exporter properties
+#
+
+# Directory to store configuration files
+export METRIC_EXPORTER_CONF_DIR=${JOB_DIR}/config
+
+# Directory to store log files
+export METRIC_EXPORTER_LOG_DIR=${LOG_DIR}
+
+# Directory to store process IDs
+export METRIC_EXPORTER_PID_DIR=${RUN_DIR}
+
+# Directory to store data files
+export METRIC_EXPORTER_STORE_DIR=${STORE_DIR}
+
+# Directory to store temp files
+export METRIC_EXPORTER_TMP_DIR=${TMP_DIR}
+
+export API_ENDPOINT=<%= p('metric-exporter.cf_api_url') %>
+export CLIENT_ID=<%= p('metric-exporter.client_id') %>
+export CLIENT_SECRET=<%= p('metric-exporter.client_secret') %>
+export ENABLE_LOCKING=<%= p('metric-exporter.enable_locking') %>
+export LOCKET_API_LOCATION=<%= p('metric-exporter.locket.api_location') %>
+
+<% if_p('metric-exporter.metric_whitelist') do |metric_whitelist| %>
+export METRIC_WHITELIST="<%= metric_whitelist %>"
+<% end %>
+
+export ENABLE_STATSD=false
+export ENABLE_LOGGREGATOR=true
